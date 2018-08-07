@@ -4,3 +4,4 @@
 
 
  -Detection of Empty String in input field.
+ -Uses Regular Expressions to validate Valid format of Name, Email and Websites.
