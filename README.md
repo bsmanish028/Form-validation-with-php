@@ -3,5 +3,5 @@
 -A Simple HTML form with functionality of :
 
 
- -Detection of Empty String in input field.
- -Uses Regular Expressions to validate Valid format of Name, Email and Websites.
+-Detection of Empty String in input field.
+-Uses Regular Expressions to validate Valid format of Name, Email and Websites.
