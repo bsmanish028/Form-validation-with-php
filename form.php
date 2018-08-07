@@ -41,7 +41,31 @@
 			}
 		}
 
-	
+	if(!empty($_POST['Name']) && !empty($_POST['Email']) && !empty($_POST['Gender']) && !empty($_POST['Website'])){
+		if((preg_match("/(https:|ftp:)\/\/+[a-zA-Z0-9.\-_\/?\$=&\#\~`!]+\.[a-zA-Z0-9.\-_\/?\$=&\#\~`!]*/", $Website)==true && preg_match("/[A-Za-z0-9._-]{3,}@[A-Za-z0-9._-]{3,}[.]{1}[A-Za-z0-9._-]{2,}/", $Email)== true && preg_match("/^[A-Za-z\. ]*$/", $Name)==true )){
+		echo "<h3>Feedback Information : </h3> <br> ";
+		echo "Name : " .ucwords($_POST['Name']) ." <br>";
+		echo "Email : {$_POST['Email']} <br>";
+		echo "Gender : {$_POST['Gender']} <br>";
+		echo "Website : {$_POST['Website']} <br>";
+		echo "Comment : {$_POST['Comment']} <br>";
+
+		//sending mail part
+		$mailto = "manishkr201331@gmail.com";
+		$sender = "manishkr201331@gmail.com";
+		$subject = "Feedback Form";
+		$body = $_POST['Name']. " who is ".$_POST['Gender']. " with Email address " .$_POST['Email']. " has commented on your post" .$_POST['Comment'];
+
+		if(mail($mailto,$subject,$body,$sender)){
+			echo "Mail sent successfully";
+		}else{
+			echo "Mail sending Fail";
+		}
+
+	}else{
+			echo '<span class="Error"1> Plesae Complete form in valid format and Submit again. </span>';
+	}
+	}
 	}
 
 	function get_user_data($Data){
