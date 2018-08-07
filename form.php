@@ -4,6 +4,49 @@
 	$EmailError ="";
 	$GenderError ="";
 	$WebsiteError ="";
+
+	if(isset($_POST['Submit'])){
+		//name
+		if(empty($_POST['Name'])){
+			$NameError = "Name is Required";
+		}else{
+			$Name = get_user_data($_POST['Name']);
+			if(!preg_match("/^[A-Za-z\. ]*$/", $Name)){
+				$NameError = "Only Letters and White Spaces are allowed.";
+			}
+		}
+		//email 
+		if(empty($_POST['Email'])){
+			$EmailError = "E-Mail is Required";
+		}else{
+			$Email = get_user_data($_POST['Email']);
+			if(!preg_match("/[A-Za-z0-9._-]{3,}@[A-Za-z0-9._-]{3,}[.]{1}[A-Za-z0-9._-]{2,}/", $Email)){
+				$EmailError = "Invalid E-mail Format";
+			}
+		}
+		//gender
+		if(empty($_POST['Gender'])){
+			$GenderError = "Gender is Required";
+		}else{
+			$Gender = get_user_data($_POST['Gender']);
+
+		}
+		//website
+		if(empty($_POST['Website'])){
+			$WebsiteError = "Website is Required";
+		}else{
+			$Website = get_user_data($_POST['Website']);
+			if(!preg_match("/(https:|ftp:)\/\/+[a-zA-Z0-9.\-_\/?\$=&\#\~`!]+\.[a-zA-Z0-9.\-_\/?\$=&\#\~`!]*/", $Website)){
+				$WebsiteError = "Invalid Website Address Format";
+			}
+		}
+
+	
+	}
+
+	function get_user_data($Data){
+		return $Data;
+	}
 	
 
 
