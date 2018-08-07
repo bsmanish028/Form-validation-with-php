@@ -1,1 +1,6 @@
-# form_validation_with_php
+# Form Validation with Php and Sending Mail by local host.
+
+-A Simple HTML form with functionality of :
+
+
+ 
